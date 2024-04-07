@@ -1,7 +1,7 @@
 <script lang="ts">
 	import Dropzone from "svelte-file-dropzone";
 	import { handleFilesSelect } from "./handleFilesSelect";
-
+	import { handleUpload } from "../Upload/upload";
 	let files = {
 		accepted: [] as any[],
 		rejected: [] as any[],
