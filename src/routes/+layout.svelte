@@ -1,10 +1,16 @@
 <script>
 	import '../app.pcss';
 	import './styles.css';
+	import Header from '../component/Header.svelte';
 </script>
 
 <div class="app">
+	<Header />
 	<slot />
+
+	<!-- <footer>
+		<p> This project is made for LLM × Law hackathon at Stanford
+	</footer> -->
 </div>
 
 <style>

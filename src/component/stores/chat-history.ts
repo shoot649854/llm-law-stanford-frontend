@@ -17,7 +17,7 @@ export const chatHistory = derived(chatMessages, ($chatMessages) => {
 
   if (history && $chatMessages.messages.length === 1) return JSON.parse(history);
 
-  const key = $chatMessages.messages[1].content; //The second message is the query
+  const key = $chatMessages.messages[1].content;
   const value = $chatMessages.messages;
   const obj = { [key]: value };
 

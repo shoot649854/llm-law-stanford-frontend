@@ -1,7 +1,7 @@
 <script>
     import { formatName } from "./formatName";
     import { name } from "../../component/store";
-    import Button from "../../component/Button/Button.svelte";
+    import NextButton from "../../component/Button/nextButton.svelte";
     import PdfInput from "../../component/Input/PDF_Input.svelte";
 	let DirPath = 'chat';
     let firstName = '';
@@ -70,7 +70,7 @@
         </div>
         <PdfInput></PdfInput>
 
-        <Button userInfo={DirPath} {isButtonDisabled} />
+        <NextButton userInfo={DirPath} {isButtonDisabled} />
         <!-- <PdfViewer data={atob(base64)}, url='./Resume-SWE.pdf' /> -->
 	</main>
 </div>

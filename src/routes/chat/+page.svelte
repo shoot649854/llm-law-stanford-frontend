@@ -3,6 +3,7 @@
 	import ChatHistory from "../../component/Message/ChatHistory.svelte";
 	import ChatMessage from '../../component/Message/ChatMessage.svelte';
 	import Input from '../../component/Message/Input.svelte';
+	import Sidebar from "./sidebar.svelte";
 	import { chatMessages, answer } from '../../component/stores/chat-messages';
   
 	let query = '';
@@ -20,16 +21,17 @@
 </svelte:head>
 
 <div class="app">
-    <main>
-  <section class="flex max-w-6xl w-full pt-4 justify-center">
-	<div class="flex flex-col gap-2">
-	  <ChatHistory />
+	<div class="sidebar">
+	  <Sidebar />
 	</div>
+
+	<section class="flex max-w-6xl w-full pt-4 justify-center">
+		<div class="flex flex-col gap-2">
+		<ChatHistory />
+		</div>
   
 	<div class="flex flex-col w-full px-8 items-center gap-2">
-	  <div
-		class="h-[700px] w-full bg-black bg-opacity-20 rounded-md p-4 overflow-y-auto flex flex-col gap-4"
-	  >
+	  <div class="h-[700px] w-full bg-black bg-opacity-20 rounded-md p-4 overflow-y-auto flex flex-col gap-4">
 		<div class="flex flex-col gap-2">
 		  {#each $chatMessages.messages as message}
 			<ChatMessage type={message.role} message={message.content} />
@@ -54,14 +56,16 @@
 	  </form>
 	</div>
   </section>
-  </main>
 </div>
 
 <style>
 	.app {
 		display: flex;
-		flex-direction: column;
-		min-height: auto;
+		flex-direction: row; /* this is default and does not need to be specified unless you're overriding another style */
+		align-items: start; /* aligns children of .app at the start of the cross axis, which is at the top if flex-direction is row */
+		min-height: auto; /* minimum height of the container; auto will be the height of the content */
+		flex-wrap: nowrap; /* prevents wrapping of items, ensuring they stay in a single line */
+		gap: 10px; 
 	}
 
 	main {
@@ -77,5 +81,5 @@
 		position: center;
 	}
 
-    
+	
 </style>

@@ -1,13 +1,14 @@
 <script>
 	import './styles.css';
-	import Button from '../component/Button/Button.svelte';
-	let DirPath = 'userInfo';
+	import NextButton from '../component/Button/nextButton.svelte';
+	let UserPath = 'userInput';
+	let DocumentPath = 'documentInput';	
 
 </script>
 
 <!-- TEMPLATE -->
 <div class="app">
-	<h1>About Our Platform</h1>
+	<h1>Oppty</h1>
 	<main>
 	
 		<div>
@@ -15,17 +16,9 @@
 			<p>We are dedicated to empowering immigrants, especially students, by providing them with reliable, accurate, and up-to-date legal and visa information. Our goal is to simplify the complexities of immigration laws and visa applications through the use of our Law-fine-tuned LLM model.</p>
 		</div>
 		
-		<div class="about-section">
-			<h2>Services Offered</h2>
-			<p>Our platform offers a range of services including:</p>
-			<ul>
-			<li><span class="highlight">Personalized Legal Information:</span> Customized legal advice tailored to your specific situation and questions.</li>
-			<li><span class="highlight">Visa Assistance:</span> Step-by-step guidance through the visa application process, helping you understand the requirements and procedures.</li>
-			<li><span class="highlight">Resources and Tools:</span> Access to a wide range of resources and tools designed to assist with immigration and visa processes.</li>
-			</ul>
-		</div>
-
-		<Button userInfo={DirPath} />
+		
+		<NextButton userInfo={UserPath} />
+		<NextButton userInfo={DocumentPath} />
 		
 	</main>
 </div>

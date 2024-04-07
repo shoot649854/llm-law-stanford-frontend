@@ -5,18 +5,15 @@
 </script>
 
 <header>
-	<!-- <div class="corner">
-		<a href="https://kit.svelte.dev">
-			<img src={logo} alt="SvelteKit" />
-		</a>
-	</div> -->
-
-	
+	<div class="corner">
+	</div>
 </header>
 
 <style>
 	header {
+		height: auto;
 		display: flex;
 		justify-content: space-between;
+		background-color: 39462C;
 	}
 </style>
