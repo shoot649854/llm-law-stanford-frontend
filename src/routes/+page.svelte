@@ -1,8 +1,7 @@
 <script>
-	import Header from '../component/Header.svelte';
 	import './styles.css';
-
-	import { handleTellMeMoreClick } from '../component/button';
+	import Button from '../component/Button.svelte';
+	let DirPath = 'userInfo';
 
 </script>
 
@@ -25,16 +24,9 @@
 			<li><span class="highlight">Resources and Tools:</span> Access to a wide range of resources and tools designed to assist with immigration and visa processes.</li>
 			</ul>
 		</div>
-		
-		<div class="about-section">
-			<h2>How It Works</h2>
-			<p>Our platform utilizes a sophisticated LLM model fine-tuned for law and immigration issues to provide you with the most accurate and relevant advice. Simply submit your question through our platform, and our AI will analyze your query and provide detailed guidance based on current laws and regulations.</p>
-		</div>
 
-		<div class="about-section call-to-action">
-			<p>Ready to get started or need more information? <a href="/contact">Contact us</a> today to see how we can help you on your journey.</p>
-			<button on:click={() => handleTellMeMoreClick('/info')}>Tell Me More about Contact</button>
-		</div>
+		<Button userInfo={DirPath} />
+		
 	</main>
 </div>
 
@@ -56,35 +48,5 @@
 		margin: 0 auto;
 		box-sizing: border-box;
 	}
-
-	.about-section.call-to-action {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start; /* Aligns items to the start of the flex container, effectively left-aligning them */
-  }
-
-  .about-section.call-to-action p {
-    margin-bottom: 0; /* Removes margin below the paragraph to reduce space between the text and the button */
-  }
-
-  .about-section.call-to-action button {
-    align-self: flex-end; /* Aligns the button to the end of the flex container, effectively right-aligning it */
-    margin-top: 20px; /* Adds some space between the text and the button */
-  }
-  
-	button {
-    padding: 10px 20px;
-    margin-top: 20px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-  }
-
-  button:hover {
-    background-color: #0056b3;
-  }
 
 </style>

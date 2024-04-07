@@ -1,5 +1,9 @@
 <script>
-    // You can add reactive statements here to respond to input changes
+    import { formatName } from "./formatName";
+    import { name } from "../../component/store";
+    import Button from "../../component/Button.svelte";
+	let DirPath = 'chat';
+
     let firstName = '';
     let lastName = '';
     let birthDate = '';
@@ -8,6 +12,14 @@
     let checkbox1 = false;
     let checkbox2 = false;
     let checkbox3 = false;
+
+    $: if (firstName || lastName) {
+        name.set(formatName(firstName, lastName));
+    }
+
+    $: isButtonDisabled = !firstName || !lastName || !birthDate || 
+                          !(switch1 || switch2) || 
+                          !(checkbox1 || checkbox2 || checkbox3);
 </script>
 
 <svelte:head>
@@ -60,6 +72,8 @@
 				<input type="checkbox" bind:checked={checkbox3}> Checkbox 3
 			</label>
 		</div>
+
+        <Button userInfo={DirPath} {isButtonDisabled} />
 	</main>
 </div>
 

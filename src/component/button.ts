@@ -1,5 +1,5 @@
 import { goto } from '$app/navigation';
 
-export function handleTellMeMoreClick(path: string) {
+export function ButtonComponent(path: string) {
   goto(path);
 }
