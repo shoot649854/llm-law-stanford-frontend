@@ -59,74 +59,74 @@
 		position: center;
 	}
 
-    .mui-textfield {
-        margin-bottom: 20px;
-        height: auto;
-        display: flex;
-        flex-direction: row; /* Change to row */
-        align-items: center;
-    }
-
-    .mui-textfield label {
-        margin-right: 10px; /* Optional: Add spacing between label and input */
-    }
-
-    .mui-textfield input[type="text"] {
-        width: 300px; /* Adjust width as needed */
-    }
-
-    /* Color */
-    .mui-textfield input[type="text"],
-    .mui-textfield input[type="date"] {
-        height: auto;
-        background-color: transparent;
-        border: none; /* Remove default border */
-        border-bottom: 1px solid black; /* Add bottom border */
-        padding-bottom: 5px; 
-    }
-
-    .mui-switch {
-        display: flex;
-        align-items: center;
-        margin-bottom: 20px;
-    }
-
-
-    .mui-switch input[type="checkbox"] {
-        display: none;
-    }
-
-    .mui-slider {
-        position: relative;
-        display: inline-block;
-        width: 40px;
-        height: 20px;
-        background-color: #ccc;
-        border-radius: 10px;
-        transition: background-color 0.3s;
-    }
-    
-    .mui-slider:before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 18px;
-        height: 18px;
-        background-color: white;
-        border-radius: 50%;
-        transition: transform 0.3s;
-    }
-
-    .mui-switch input[type="checkbox"]:checked + .mui-slider {
-        background-color: #2196F3;
-    }
-
-    .mui-switch input[type="checkbox"]:checked + .mui-slider:before {
-        transform: translateX(20px);
-    }
-
-    .mui-checkbox {
-        margin-bottom: 10px;
-    }
 </style>
+<!-- .mui-textfield {
+    margin-bottom: 20px;
+    height: auto;
+    display: flex;
+    flex-direction: row; /* Change to row */
+    align-items: center;
+}
+
+.mui-textfield label {
+    margin-right: 10px; /* Optional: Add spacing between label and input */
+}
+
+.mui-textfield input[type="text"] {
+    width: 300px; /* Adjust width as needed */
+}
+
+/* Color */
+.mui-textfield input[type="text"],
+.mui-textfield input[type="date"] {
+    height: auto;
+    background-color: transparent;
+    border: none; /* Remove default border */
+    border-bottom: 1px solid black; /* Add bottom border */
+    padding-bottom: 5px; 
+}
+
+.mui-switch {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+
+.mui-switch input[type="checkbox"] {
+    display: none;
+}
+
+.mui-slider {
+    position: relative;
+    display: inline-block;
+    width: 40px;
+    height: 20px;
+    background-color: #ccc;
+    border-radius: 10px;
+    transition: background-color 0.3s;
+}
+
+.mui-slider:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 18px;
+    height: 18px;
+    background-color: white;
+    border-radius: 50%;
+    transition: transform 0.3s;
+}
+
+.mui-switch input[type="checkbox"]:checked + .mui-slider {
+    background-color: #2196F3;
+}
+
+.mui-switch input[type="checkbox"]:checked + .mui-slider:before {
+    transform: translateX(20px);
+}
+
+.mui-checkbox {
+    margin-bottom: 10px;
+} -->

@@ -40,8 +40,10 @@
 		{#each chatHistoryKeys as message (message)}
 			<!-- svelte-ignore a11y-click-events-have-key-events -->
 			<div
+				role="button"
+				tabindex="0"
 				on:click={() => loadMessages(message)}
-				class="flex py-3 px-3 items-center gap-3 relative rounded-md cursor-pointer break-all pr-14 bg-opacity-40 hover:bg-white/5  bg-black  group animate-flash text-sm"
+				class="flex py-3 px-3 items-center gap-3 relative rounded-md cursor-pointer break-all pr-14 bg-opacity-40 hover:bg-white/5 bg-black group animate-flash text-sm"
 			>
 				<Chat />
 				<div class="flex-1 text-ellipsis max-h-5 overflow-hidden break-all relative">{message}</div>
