@@ -1,6 +1,6 @@
 <script>
 	import './styles.css';
-	import Button from '../component/Button.svelte';
+	import Button from '../component/Button/Button.svelte';
 	let DirPath = 'userInfo';
 
 </script>

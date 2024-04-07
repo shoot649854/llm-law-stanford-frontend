@@ -1,9 +1,9 @@
 <script>
     import { formatName } from "./formatName";
     import { name } from "../../component/store";
-    import Button from "../../component/Button.svelte";
+    import Button from "../../component/Button/Button.svelte";
+    import PdfInput from "../../component/Input/PDF_Input.svelte";
 	let DirPath = 'chat';
-
     let firstName = '';
     let lastName = '';
     let birthDate = '';
@@ -72,8 +72,10 @@
 				<input type="checkbox" bind:checked={checkbox3}> Checkbox 3
 			</label>
 		</div>
+        <PdfInput></PdfInput>
 
         <Button userInfo={DirPath} {isButtonDisabled} />
+        <!-- <PdfViewer data={atob(base64)}, url='./Resume-SWE.pdf' /> -->
 	</main>
 </div>
 

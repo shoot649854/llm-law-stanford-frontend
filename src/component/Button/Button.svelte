@@ -1,5 +1,5 @@
 <script>
-    import { ButtonComponent } from '../component/button';
+    import { ButtonComponent } from './button';
     export let userInfo = '';
     export let isButtonDisabled = false;
 </script>
