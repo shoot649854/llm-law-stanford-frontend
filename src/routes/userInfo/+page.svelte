@@ -28,50 +28,46 @@
 </svelte:head>
 
 <div class="app">
-	<main>
-		<div>
-			<label for="firstName"><p>First Name:</p></label>
-			<input type="text" id="firstName" bind:value={firstName}>
-		
-		</div>
-		<div>
-			<label for="lastName"><p>Last Name:</p></label>
-			<input type="text" id="lastName" bind:value={lastName}>
-		
-		</div>
-		<div>
-			<label for="birthDate"><p>Birth Date:</p></label>
-			<input type="date" id="birthDate" bind:value={birthDate}>
-		
-		</div>
-		<div>
-			<label class="switch">
-				<input type="checkbox" bind:checked={switch1}>
-				<span class="slider round"></span>
-			</label>
-		</div>
-		<div>
-			<label class="switch">
-				<input type="checkbox" bind:checked={switch2}>
-				<span class="slider round"></span>
-			</label>
-		</div>
-	
-		<div>
-			<label>
-				<input type="checkbox" bind:checked={checkbox1}> Checkbox 1
-			</label>
-		</div>
-		<div>
-			<label>
-				<input type="checkbox" bind:checked={checkbox2}> Checkbox 2
-			</label>
-		</div>
-		<div>
-			<label>
-				<input type="checkbox" bind:checked={checkbox3}> Checkbox 3
-			</label>
-		</div>
+    <main>
+        <div class="mui-textfield">
+            <label for="firstName">First Name:</label>
+            <input type="text" id="firstName" bind:value={firstName}>
+        </div>
+        <div class="mui-textfield">
+            <label for="lastName">Last Name:</label>
+            <input type="text" id="lastName" bind:value={lastName}>
+        </div>
+        <div class="mui-textfield">
+            <label for="birthDate">Birth Date:</label>
+            <input type="date" id="birthDate" bind:value={birthDate}>
+        </div>
+        <div class="mui-switch">
+            <label>
+                <input type="checkbox" bind:checked={switch1}>
+                <span class="mui-slider"></span>
+            </label>
+        </div>
+        <div class="mui-switch">
+            <label>
+                <input type="checkbox" bind:checked={switch2}>
+                <span class="mui-slider"></span>
+            </label>
+        </div>
+        <div class="mui-checkbox">
+            <label>
+                <input type="checkbox" bind:checked={checkbox1}> Checkbox 1
+            </label>
+        </div>
+        <div class="mui-checkbox">
+            <label>
+                <input type="checkbox" bind:checked={checkbox2}> Checkbox 2
+            </label>
+        </div>
+        <div class="mui-checkbox">
+            <label>
+                <input type="checkbox" bind:checked={checkbox3}> Checkbox 3
+            </label>
+        </div>
         <PdfInput></PdfInput>
 
         <Button userInfo={DirPath} {isButtonDisabled} />
@@ -82,6 +78,7 @@
 
 <style>
 	.app {
+        margin-top: 10px;
 		display: flex;
 		flex-direction: column;
 		min-height: auto;
@@ -100,62 +97,74 @@
 		position: center;
 	}
 
-    .switch {
+    .mui-textfield {
+        margin-bottom: 20px;
+        height: auto;
+        display: flex;
+        flex-direction: row; /* Change to row */
+        align-items: center;
+    }
+
+    .mui-textfield label {
+        margin-right: 10px; /* Optional: Add spacing between label and input */
+    }
+
+    .mui-textfield input[type="text"] {
+        width: 300px; /* Adjust width as needed */
+    }
+
+    /* Color */
+    .mui-textfield input[type="text"],
+    .mui-textfield input[type="date"] {
+        height: auto;
+        background-color: transparent;
+        border: none; /* Remove default border */
+        border-bottom: 1px solid black; /* Add bottom border */
+        padding-bottom: 5px; 
+    }
+
+    .mui-switch {
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+    }
+
+
+    .mui-switch input[type="checkbox"] {
+        display: none;
+    }
+
+    .mui-slider {
         position: relative;
         display: inline-block;
-        width: 60px;
-        height: 34px;
+        width: 40px;
+        height: 20px;
+        background-color: #ccc;
+        border-radius: 10px;
+        transition: background-color 0.3s;
     }
-
-    .switch input {
-        opacity: 0;
-        width: 0;
-        height: 0;
-    }
-
-    .slider {
+    
+    .mui-slider:before {
+        content: '';
         position: absolute;
-        cursor: pointer;
         top: 0;
         left: 0;
-        right: 0;
-        bottom: 0;
-        background-color: #ccc;
-        -webkit-transition: .4s;
-        transition: .4s;
-    }
-
-    .slider:before {
-        position: absolute;
-        content: "";
-        height: 26px;
-        width: 26px;
-        left: 4px;
-        bottom: 4px;
+        width: 18px;
+        height: 18px;
         background-color: white;
-        -webkit-transition: .4s;
-        transition: .4s;
+        border-radius: 50%;
+        transition: transform 0.3s;
     }
 
-    input:checked + .slider {
+    .mui-switch input[type="checkbox"]:checked + .mui-slider {
         background-color: #2196F3;
     }
 
-    input:focus + .slider {
-        box-shadow: 0 0 1px #2196F3;
+    .mui-switch input[type="checkbox"]:checked + .mui-slider:before {
+        transform: translateX(20px);
     }
 
-    input:checked + .slider:before {
-        -webkit-transform: translateX(26px);
-        -ms-transform: translateX(26px);
-        transform: translateX(26px);
-    }
-
-    .slider.round {
-        border-radius: 34px;
-    }
-
-    .slider.round:before {
-        border-radius: 50%;
+    .mui-checkbox {
+        margin-bottom: 10px;
     }
 </style>
