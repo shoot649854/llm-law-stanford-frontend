@@ -2,22 +2,28 @@
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 import { getFirestore, type Firestore } from "firebase/firestore";
+import { getStorage } from "firebase/storage";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "AIzaSyB9Syg-E4CWg3bGAUj0hPYzQl_CnqEHRaQ",
-  authDomain: "llm-law-stanford-frontend.firebaseapp.com",
-  projectId: "llm-law-stanford-frontend",
-  storageBucket: "llm-law-stanford-frontend.appspot.com",
-  messagingSenderId: "278684728814",
-  appId: "1:278684728814:web:6bd1df7747dfec993be2ff",
-  measurementId: "G-H06833JXRE"
+  apiKey: import.meta.env.VITE_apiKey,
+  authDomain: import.meta.env.VITE_authDomain,
+  projectId: import.meta.env.VITE_projectId,
+  storageBucket: import.meta.env.VITE_storageBucket,
+  messagingSenderId: import.meta.env.VITE_messagingSenderId,
+  appId: import.meta.env.VITE_appId,
+  measurementId: import.meta.env.VITE_measurementId,
 };
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
 export const db: Firestore = getFirestore(app);
+export const storage = getStorage(app);
+
+// Initialize Firebase Analytics only in the client-side environment
+if (typeof window !== 'undefined') {
+  const analytics = getAnalytics(app);
+}
