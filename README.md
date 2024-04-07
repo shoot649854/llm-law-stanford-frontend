@@ -1,3 +1,8 @@
+# ✔  Deploy complete!
+
+Project Console: https://console.firebase.google.com/project/llm-law-stanford-frontend/overview
+Hosting URL: https://llm-law-stanford-frontend.web.app
+
 # create-svelte
 
 Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/main/packages/create-svelte).
