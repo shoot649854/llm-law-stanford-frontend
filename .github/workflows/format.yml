@@ -18,7 +18,10 @@ jobs:
           npm install
 
       - name: Deploy
-        run: npm run deploy
+        run: |
+          npm install firebase
+          npm run firebase login
+          npm run deploy
 
       - name: format code
         run: |
