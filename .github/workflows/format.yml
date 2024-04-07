@@ -20,7 +20,7 @@ jobs:
       - name: Deploy
         run: |
           npm install firebase
-          npm run firebase login --interactive
+          npm run firebase login:ci --interactive
           npm run deploy
 
       - name: format code
