@@ -8,9 +8,6 @@
 	<Header />
 	<slot />
 
-	<!-- <footer>
-		<p> This project is made for LLM × Law hackathon at Stanford
-	</footer> -->
 </div>
 
 <style>
@@ -18,6 +15,8 @@
 		display: flex;
 		flex-direction: column;
 		min-height: 1090px;
+		padding-top: 10px;
+		padding-bottom: 10px;
 		background-color: bisque;
 	}
 </style>

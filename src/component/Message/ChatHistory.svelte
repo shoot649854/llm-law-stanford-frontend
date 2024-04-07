@@ -24,9 +24,11 @@
 	});
 </script>
 
-<div
-	class="h-[700px] w-[350px] bg-black bg-opacity-20 rounded-md py-4 px-2 overflow-y-auto flex flex-col gap-2"
->
+<div class="chat-history">
+	<div class="header-title">
+		<span class="text-white">Optty CHATBOT</span>
+	</div>
+
 	<button
 		on:click={chatMessages.reset}
 		class="flex py-3 px-3 items-center gap-3 rounded-md hover:bg-gray-500/10 transition-colors duration-200 text-white cursor-pointer text-sm mb-2 flex-shrink-0 border border-white/20"
@@ -59,3 +61,29 @@
 		{/each}
 	{/if}
 </div>
+
+
+<style>
+	.header-title {
+        align-self: flex-start; /* corresponds to 'self-start' */
+        margin-left: 1.5rem; /* corresponds to 'ml-6', assuming 1rem = 4 */
+        font-size: 1.5em; /* corresponds to 'text-2xl' */
+        font-weight: bold; /* corresponds to 'font-bold' */
+    }
+	
+	.chat-history {
+		height: 100%; /* corresponds to 'h-[700px]' */
+		width: 350px; /* corresponds to 'w-[350px]' */
+		background-color: rgba(0, 0, 0, 0.2); /* corresponds to 'bg-black bg-opacity-20' */
+		border-radius: 0.375rem; /* corresponds to 'rounded-md', typically 0.375rem for medium */
+		padding-top: 1rem; /* corresponds to 'py-4', assuming 1rem = 4 */
+		padding-bottom: 1rem; /* corresponds to 'py-4', assuming 1rem = 4 */
+		padding-left: 0.5rem; /* corresponds to 'px-2', assuming 1rem = 4 */
+		padding-right: 0.5rem; /* corresponds to 'px-2', assuming 1rem = 4 */
+		overflow-y: auto; /* corresponds to 'overflow-y-auto' */
+		display: flex; /* corresponds to 'flex' */
+		flex-direction: column; /* corresponds to 'flex-col' */
+		gap: 0.5rem; 
+		background-color: #435334;
+	}
+</style>
