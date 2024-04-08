@@ -1,7 +1,7 @@
 <script>
     import { page } from '$app/stores';
 	import { goto } from '$app/navigation';
-    import logo from '$lib/images/logo.png';
+    import logo from '$lib/images/optty-logo.png';
     // import github from '$lib/images/github.svg';
 </script>
 
