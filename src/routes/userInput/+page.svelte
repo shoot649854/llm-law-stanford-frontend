@@ -4,14 +4,23 @@
     import NextButton from "../../component/Button/nextButton.svelte";
     import PdfInput from "../../component/Input/PDF_Input.svelte";
 	let DirPath = 'chat';
-    let firstName = '';
-    let lastName = '';
     let birthDate = '';
     let switch1 = false;
     let switch2 = false;
     let checkbox1 = false;
     let checkbox2 = false;
     let checkbox3 = false;
+    let firstName = '';
+    let lastName = '';
+    let universityName = ''; // Declare universityName variable
+    let registerEmail = '';
+    let academicLevel = '';
+    let thesisSubmissionDate = '';
+    let programEndDate = '';
+    let isSTEMQualified = '';
+    let appliedToOPT = '';
+    let gotEAD = '';
+    let futureSteps = [];
 
     $: if (firstName || lastName) {
         name.set(formatName(firstName, lastName));
@@ -38,42 +47,71 @@
             <input type="text" id="lastName" bind:value={lastName}>
         </div>
         <div class="mui-textfield">
-            <label for="birthDate">Birth Date:</label>
-            <input type="date" id="birthDate" bind:value={birthDate}>
+            <label for="universityName">University/College Name:</label>
+            <input type="text" id="universityName" bind:value={universityName}>
         </div>
-        <div class="mui-switch">
-            <label>
-                <input type="checkbox" bind:checked={switch1}>
-                <span class="mui-slider"></span>
-            </label>
+        <div class="mui-textfield">
+            <label for="registerEmail">Register email with us:</label>
+            <input type="email" id="registerEmail" bind:value={registerEmail}>
         </div>
-        <div class="mui-switch">
-            <label>
-                <input type="checkbox" bind:checked={switch2}>
-                <span class="mui-slider"></span>
-            </label>
+        <div class="mui-textfield">
+            <label for="academicLevel">Which level of academic programs are you graduating from?</label>
+            <select id="academicLevel" bind:value={academicLevel}>
+                <option value="Undergraduate">Undergraduate</option>
+                <option value="Master">Master</option>
+                <option value="Doctoral">Doctoral</option>
+            </select>
         </div>
-        <div class="mui-checkbox">
-            <label>
-                <input type="checkbox" bind:checked={checkbox1}> Checkbox 1
-            </label>
+        {#if academicLevel === 'Doctoral' || academicLevel === 'Master'}
+            <div class="mui-textfield">
+                <label for="thesisSubmissionDate">Thesis/Dissertation Submission Date:</label>
+                <input type="date" id="thesisSubmissionDate" bind:value={thesisSubmissionDate}>
+            </div>
+        {/if}
+        <div class="mui-textfield">
+            <label for="programEndDate">Program's End Date:</label>
+            <input type="date" id="programEndDate" bind:value={programEndDate}>
         </div>
-        <div class="mui-checkbox">
-            <label>
-                <input type="checkbox" bind:checked={checkbox2}> Checkbox 2
-            </label>
+        <div class="mui-textfield">
+            <label for="isSTEMQualified">Is your program qualified for STEM?</label>
+            <select id="isSTEMQualified" bind:value={isSTEMQualified}>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select>
         </div>
-        <div class="mui-checkbox">
-            <label>
-                <input type="checkbox" bind:checked={checkbox3}> Checkbox 3
-            </label>
+        <div class="mui-textfield">
+            <label for="appliedToOPT">Have you applied to OPT?</label>
+            <select id="appliedToOPT" bind:value={appliedToOPT}>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select>
         </div>
-        <PdfInput></PdfInput>
+        {#if appliedToOPT === 'Yes'}
+            <div class="mui-textfield">
+                <label for="gotEAD">Have you got your EAD card?</label>
+                <select id="gotEAD" bind:value={gotEAD}>
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                </select>
+            </div>
+        {/if}
+        {#if gotEAD === 'Yes'}
+            <div class="mui-textfield">
+                <label for="futureSteps">What are future steps you’d like me to assist you with in the OPT journey?</label>
+                <select id="futureSteps" multiple bind:value={futureSteps}>
+                    <option value="Apply for OPT">Apply for OPT</option>
+                    <option value="Apply for OPT Extension">Apply for OPT Extension</option>
+                    <option value="Layoff Risk Management">Layoff Risk Management</option>
+                    <option value="H1B/Green Card Application">H1B/Green Card Application</option>
+                </select>
+            </div>
+        {/if}
 
+        <PdfInput></PdfInput>
         <NextButton userInfo={DirPath} {isButtonDisabled} />
-        <!-- <PdfViewer data={atob(base64)}, url='./Resume-SWE.pdf' /> -->
 	</main>
 </div>
+
 
 
 <style>
@@ -115,7 +153,8 @@
 
     /* Color */
     .mui-textfield input[type="text"],
-    .mui-textfield input[type="date"] {
+    .mui-textfield input[type="date"],
+    .mui-textfield input[type="email"]{
         height: auto;
         background-color: transparent;
         border: none; /* Remove default border */
@@ -123,48 +162,56 @@
         padding-bottom: 5px; 
     }
 
-    .mui-switch {
-        display: flex;
-        align-items: center;
-        margin-bottom: 20px;
-    }
+    /* BOX */
+    select,
+    select option {
+    color: black; /* Set text color */
+    background-color: white; /* Set background color */
+  }
 
 
-    .mui-switch input[type="checkbox"] {
-        display: none;
-    }
-
-    .mui-slider {
-        position: relative;
-        display: inline-block;
-        width: 40px;
-        height: 20px;
-        background-color: #ccc;
-        border-radius: 10px;
-        transition: background-color 0.3s;
-    }
-    
-    .mui-slider:before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 18px;
-        height: 18px;
-        background-color: white;
-        border-radius: 50%;
-        transition: transform 0.3s;
-    }
-
-    .mui-switch input[type="checkbox"]:checked + .mui-slider {
-        background-color: #2196F3;
-    }
-
-    .mui-switch input[type="checkbox"]:checked + .mui-slider:before {
-        transform: translateX(20px);
-    }
-
-    .mui-checkbox {
-        margin-bottom: 10px;
-    }
 </style>
+<!-- .mui-switch {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+
+.mui-switch input[type="checkbox"] {
+    display: none;
+}
+
+.mui-slider {
+    position: relative;
+    display: inline-block;
+    width: 40px;
+    height: 20px;
+    background-color: #ccc;
+    border-radius: 10px;
+    transition: background-color 0.3s;
+}
+
+.mui-slider:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 18px;
+    height: 18px;
+    background-color: white;
+    border-radius: 50%;
+    transition: transform 0.3s;
+}
+
+.mui-switch input[type="checkbox"]:checked + .mui-slider {
+    background-color: #2196F3;
+}
+
+.mui-switch input[type="checkbox"]:checked + .mui-slider:before {
+    transform: translateX(20px);
+}
+
+.mui-checkbox {
+    margin-bottom: 10px;
+} -->
