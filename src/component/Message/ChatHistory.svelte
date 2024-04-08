@@ -77,7 +77,7 @@
 		height: 100%; /* corresponds to 'h-[700px]' */
 		width: 350px; /* corresponds to 'w-[350px]' */
 		background-color: rgba(0, 0, 0, 0.2); /* corresponds to 'bg-black bg-opacity-20' */
-		border-radius: 0.375rem; /* corresponds to 'rounded-md', typically 0.375rem for medium */
+		border-radius: 0 0.375rem 0.375rem 0.375rem; /* corresponds to 'rounded-md', typically 0.375rem for medium */
 		padding-top: 1rem; /* corresponds to 'py-4', assuming 1rem = 4 */
 		padding-bottom: 1rem; /* corresponds to 'py-4', assuming 1rem = 4 */
 		padding-left: 0.5rem; /* corresponds to 'px-2', assuming 1rem = 4 */
